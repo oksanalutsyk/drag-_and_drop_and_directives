@@ -3,6 +3,7 @@ import {
   OnInit,
   Input,
   ElementRef,
+  ContentChild,
 } from '@angular/core';
 
 @Component({
@@ -14,10 +15,15 @@ export class DetailComponent implements OnInit {
   @Input() title: string;
   @Input() boundary: string;
 
+  @ContentChild("headerContent", {static:true}) header: ElementRef;
+
   constructor() {}
 
   ngOnInit() {
-    console.log(this.title)
+    // console.log(this.title)
+    console.log(this.header)
   }
+
+
 
 }

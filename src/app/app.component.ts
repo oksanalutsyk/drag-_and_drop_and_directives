@@ -7,64 +7,67 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  @Input('cdkDragBoundary') cdkDragBoundary:any = 'boundary'
- title: string = 'some text'
+  @Input('cdkDragBoundary') cdkDragBoundary: any = 'boundary';
+
+  componentName = 'Child component';
+  title: string = 'some text';
 
   movies = [
     {
       title: 'Episode I - The Phantom Menace',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/4/40/Star_Wars_Phantom_Menace_poster.jpg',
     },
     {
       title: 'Episode II - Attack of the Clones',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/3/32/Star_Wars_-_Episode_II_Attack_of_the_Clones_%28movie_poster%29.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/3/32/Star_Wars_-_Episode_II_Attack_of_the_Clones_%28movie_poster%29.jpg',
     },
     {
       title: 'Episode III - Revenge of the Sith',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/9/93/Star_Wars_Episode_III_Revenge_of_the_Sith_poster.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/9/93/Star_Wars_Episode_III_Revenge_of_the_Sith_poster.jpg',
     },
     {
       title: 'Episode IV - A New Hope',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/8/87/StarWarsMoviePoster1977.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/8/87/StarWarsMoviePoster1977.jpg',
     },
     {
       title: 'Episode V - The Empire Strikes Back',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/3/3c/SW_-_Empire_Strikes_Back.jpg',
     },
     {
       title: 'Episode VI - Return of the Jedi',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/b/b2/ReturnOfTheJediPoster1983.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/b/b2/ReturnOfTheJediPoster1983.jpg',
     },
     {
       title: 'Episode VII - The Force Awakens',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/a/a2/Star_Wars_The_Force_Awakens_Theatrical_Poster.jpg',
     },
     {
       title: 'Episode VIII - The Last Jedi',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/7/7f/Star_Wars_The_Last_Jedi.jpg'
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/7/7f/Star_Wars_The_Last_Jedi.jpg',
     },
     {
       title: 'Episode IX – The Rise of Skywalker',
-      poster: 'https://upload.wikimedia.org/wikipedia/en/a/af/Star_Wars_The_Rise_of_Skywalker_poster.jpg'
-    }
+      poster:
+        'https://upload.wikimedia.org/wikipedia/en/a/af/Star_Wars_The_Rise_of_Skywalker_poster.jpg',
+    },
   ];
-
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
-    console.log(event)
     this.cdkDragBoundary = event.item.boundaryElement.toString();
     this.title = event.item.element.nativeElement.innerText;
-    console.log(event)
-
-  }
-  
-  constructor() { 
-
+    console.log(event);
   }
 
-  ngOnInit() { 
-    console.log(this.title)
+  constructor() {}
 
-  }
+  ngOnInit() {}
 }

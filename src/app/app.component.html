@@ -1,16 +1,15 @@
 <span>Text: {{cdkDragBoundary}}</span>
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)" >
-  <div
-    class="example-box"
-    *ngFor="let movie of movies"
-    cdkDrag
-    cdkDragBoundary="body"
-  >
+<div cdkDropList class="example-list" (cdkDropListDropped)="drop($event)">
+  <div class="example-box" *ngFor="let movie of movies" cdkDrag cdkDragBoundary="body">
     <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
     <img *cdkDragPreview [src]="movie.poster" [alt]="movie.title" />
     {{ movie.title }}
   </div>
 </div>
 
+<br>
+<hr>
 
-<app-detail [title]="title" [boundary]="cdkDragBoundary"></app-detail>
+<app-detail [title]="title" [boundary]="cdkDragBoundary">
+  <h3 #headerContent>{{componentName}}</h3>
+</app-detail>

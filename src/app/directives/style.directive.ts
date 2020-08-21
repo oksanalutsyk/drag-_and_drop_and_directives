@@ -17,7 +17,7 @@ export class StyleDirective {
 
   @HostBinding('style.color') elColor = null;
   @HostBinding('class') elClass ;
-  
+
 
   constructor(private el: ElementRef, private renderer: Renderer2) {
     // this.renderer.setStyle(this.el.nativeElement, 'color', 'green')
@@ -25,7 +25,7 @@ export class StyleDirective {
   }
 
   @HostListener('click', ['$event.target']) onClick(e: Event) {
-    console.log(e);
+    // console.log(e);
   }
 
   @HostListener('mouseenter') onEnter() {
